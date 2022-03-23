@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/product/layout::head"></head>
+<body>
+<h1>Detail product</h1>
+<a th:href="@{/products/list}">Back to list product</a>
+<form th:action="@{/products/delete/__${product.id}__}" method="post" th:object="${product}" enctype="multipart/form-data">
+    <input type="text" placeholder="Id" th:field="*{id}" disabled>
+    <input type="text" placeholder="Name" th:field="*{name}" disabled>
+    <input type="text" placeholder="Price" th:field="*{price}" disabled>
+    <input type="text" placeholder="Description" th:field="*{description}" disabled>
+    <label>Image</label><img th:src="@{/image/__${product.image}__}" alt="image" height="100">
+</form>
+<footer th:replace="/product/layout::footer"></footer>
+</body>
+</html>
